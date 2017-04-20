@@ -19,7 +19,7 @@ router.delete('/users/:id', aut.authToken, contUser.delUsers)
 
 router.put('/users/:id', aut.authToken, contUser.updateUsers)
 
-router.get('/articles', aut.authToken, contArticle.getArticles)
+router.get('/articles', contArticle.getArticles)
 
 router.post('/articles', aut.authToken, contArticle.createArticles)
 
