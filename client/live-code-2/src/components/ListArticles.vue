@@ -19,13 +19,25 @@
           <td>{{item.updatedAt}}</td>
           <td>{{item.createdAt}}</td>
           <td>{{item.author[0].name}}</td>
-          <td><button>Edit</button> <button v-on:click="delData(item._id)">Remove</button> <button type="button" class="btn btn-link">View</button></td>
+          <td><button v-on:click="updateData(item._id)" data-toggle="modal" data-target=".bd-example-modal-lg">Edit</button> <button v-on:click="delData(item._id)">Remove</button> </td>
         </tr>
       </tbody>
     </table>
     <router-link to="create" class="btn btn-outline-success buttlogin" type="submit">
      Add Article
     </router-link>
+
+    <!-- <button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button> -->
+
+    <!-- modal for Edit -->
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          ...
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -59,9 +71,18 @@ export default {
           });
     },
     delData: function(id) {
-      axios.delete(`http://localhost:3000/houses/${id}`)
+      axios.delete(`http://localhost:3000/articles/${id}`)
       .then(function (res) {
         window.location.reload();
+        console.log(JSON.stringify(res));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    },
+    updateData: function(id) {
+      axios.put(`http://localhost:3000/articles/${id}`, this.item)
+      .then(function (res) {
         console.log(JSON.stringify(res));
       })
       .catch(function (error) {

@@ -3,6 +3,9 @@
     <!-- <img src="../assets/home_background.jpg" class="image"> -->
     <!-- <p>{{items}}</p> -->
     <h1>Welcome to Article Website</h1>
+    <router-link to="articles" class="butArtic" type="submit">
+     View Articles
+    </router-link>
   </div>
 </template>
 
@@ -10,15 +13,7 @@
 export default {
   data () {
     return {
-      items: [],
-      item: {
-        title: '',
-        description: '',
-        address: '',
-        price: ''
-      }
     }
-
   }
 
 }

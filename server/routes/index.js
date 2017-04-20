@@ -21,10 +21,10 @@ router.put('/users/:id', aut.authToken, contUser.updateUsers)
 
 router.get('/articles', contArticle.getArticles)
 
-router.post('/articles', aut.authToken, contArticle.createArticles)
+router.post('/articles', contArticle.createArticles)
 
-router.delete('/articles/:id', aut.authToken, contArticle.delArticles)
+router.delete('/articles/:id', contArticle.delArticles)
 
-router.put('/articles/:id', aut.authToken, contArticle.updateArticles)
+router.put('/articles/:id', contArticle.updateArticles)
 
 module.exports = router;

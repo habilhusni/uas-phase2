@@ -34,6 +34,7 @@ let createArticles = (req, res) => {
 
 	article.save(function (err) {
   	if (err) res.send(err);
+		// 
 	});
 
 	res.send(article);
