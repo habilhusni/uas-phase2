@@ -5,25 +5,26 @@ var contArticle = require('../controller/articleController');
 var contUser = require('../controller/userController');
 var Articles = require('../models/article');
 var Users = require('../models/user');
+var aut = require('../autentikasi/auths');
 
-router.get('/', function(req, res) {
-  res.render('index', { title: 'Express' });
-});
+// router.get('/', function(req, res) {
+//   res.render('index', { title: 'Express' });
+// });
 
-router.get('/users', contUser.getUsers)
+router.get('/users', aut.authToken, contUser.getUsers)
 
-router.post('/users', contUser.createUsers)
+router.post('/signup', contUser.createUsers)
 
-router.delete('/users/:id', contUser.delUsers)
+router.delete('/users/:id', aut.authToken, contUser.delUsers)
 
-router.put('/users/:id', contUser.updateUsers)
+router.put('/users/:id', aut.authToken, contUser.updateUsers)
 
-router.get('/articles', contArticle.getArticles)
+router.get('/articles', aut.authToken, contArticle.getArticles)
 
-router.post('/articles', contArticle.createArticles)
+router.post('/articles', aut.authToken, contArticle.createArticles)
 
-router.delete('/articles/:id', contArticle.delArticles)
+router.delete('/articles/:id', aut.authToken, contArticle.delArticles)
 
-router.put('/articles/:id', contArticle.updateArticles)
+router.put('/articles/:id', aut.authToken, contArticle.updateArticles)
 
 module.exports = router;
