@@ -1,25 +1,24 @@
 'use strict'
 var express = require('express');
 var router = express.Router();
-var Users = require('../models/user');
 var Articles = require('../models/article');
 
 let getArticles = (req, res) => {
 
-	// Articles.find(function (err, articles) {
-  // 		if (err) res.send(err);
-  // 		res.send(articles);
-	// })
+	Articles.find(function (err, articles) {
+  		if (err) res.send(err);
+  		res.send(articles);
+	})
 
-	Articles.find({})
-       .populate('author')
-       .exec((err,results) => {
-          if(err) {
-            res.send(err.message)
-          } else {
-            res.send(results)
-          }
-        })
+	// Articles.find({})
+  //      .populate('author')
+  //      .exec((err,results) => {
+  //         if(err) {
+  //           res.send(err.message)
+  //         } else {
+  //           res.send(results)
+  //         }
+  //       })
 
 }
 

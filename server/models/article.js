@@ -10,6 +10,6 @@ var articleSchema = new Schema({
   createdAt: Date
 });
 
-var User = mongoose.model('User', userSchema);
+var Article = mongoose.model('Article', articleSchema);
 
-module.exports = User;
+module.exports = Article;

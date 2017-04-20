@@ -10,12 +10,20 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/user', contUser.getUsers)
+router.get('/users', contUser.getUsers)
 
-router.post('/houses', contUser.createHouses)
+router.post('/users', contUser.createUsers)
 
-router.delete('/houses/:id', control.delHouses)
+router.delete('/users/:id', contUser.delUsers)
 
-router.put('/houses/:id', control.updateHouses)
+router.put('/users/:id', contUser.updateUsers)
+
+router.get('/articles', contArticle.getArticles)
+
+router.post('/articles', contArticle.createArticles)
+
+router.delete('/articles/:id', contArticle.delArticles)
+
+router.put('/articles/:id', contArticle.updateArticles)
 
 module.exports = router;
